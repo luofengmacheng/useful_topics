@@ -107,6 +107,7 @@ channel.queue_bind(exchange='logs',
 topic类型的exchange与queue绑定的key是一个由多个域组成的字符串，每个域之间用`.`分隔，每个域的含义由用户自由定义。例如，可以将绑定的key设置为`abc.def`，那么，当exchange收到主题为abc.def的消息时就会投递到对应的队列中。topic类型的exchange也提供两种通配符：
 
 (1) `*`表示一个主题
+
 (2) `#`表示0个或多个主题
 
 例如，当绑定的key设置为`abc.*`，那么当消息的routing_key是abc.def时，就会投递到绑定的队列中，而消息的routing_key是abc.def.ghi或者abc时，则不会投递到绑定的队列中。当绑定的key设置为`abc.#`，那么只要消息routing_key的第一个单词是abc就会投递到绑定的队列。
@@ -153,4 +154,5 @@ RabbitMQ中主要的设计思想就是使用了exchange，exchange在前端负�
 ### 参考文献
 
 1 [消息队列应用场景](http://www.cnblogs.com/stopfalling/p/5375492.html)
+
 2 [RabbitMQ从入门到精通](http://blog.csdn.net/column/details/rabbitmq.html)
