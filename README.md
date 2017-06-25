@@ -7,3 +7,5 @@
 3 [前端开发中特殊字符的问题](https://github.com/luofengmacheng/useful_topics/blob/master/escape.md)
 
 4 [初识RabbitMQ](https://github.com/luofengmacheng/useful_topics/blob/master/rabbitmq_introduce.md)
+
+5 [redis(3.2.5)代码总体处理流程](https://github.com/luofengmacheng/useful_topics/blob/master/redis_illustrate.md)

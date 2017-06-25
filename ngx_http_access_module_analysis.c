@@ -39,6 +39,9 @@ typedef struct {
 
 #endif
 
+/**
+ * 存放配置的结构体
+ */
 typedef struct {
     ngx_array_t      *rules;     /* array of ngx_http_access_rule_t */
 #if (NGX_HAVE_INET6)
@@ -111,9 +114,6 @@ static ngx_http_module_t  ngx_http_access_module_ctx = {
     ngx_http_access_merge_loc_conf         /* merge location configuration */
 };
 
-/*
- * 
- */
 ngx_module_t  ngx_http_access_module = {
     NGX_MODULE_V1,
     &ngx_http_access_module_ctx,           /* module context */
@@ -129,7 +129,9 @@ ngx_module_t  ngx_http_access_module = {
     NGX_MODULE_V1_PADDING
 };
 
-
+/**
+ * 访问处理函数
+ */
 static ngx_int_t
 ngx_http_access_handler(ngx_http_request_t *r)
 {
@@ -302,7 +304,10 @@ ngx_http_access_found(ngx_http_request_t *r, ngx_uint_t deny)
     return NGX_OK;
 }
 
-
+/*
+ * 配置值处理函数：
+ * 根据配置的值cf和命令cmd生成自定义的配置结构体conf
+ */
 static char *
 ngx_http_access_rule(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 {
@@ -472,6 +477,7 @@ ngx_http_access_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
 
 /*
  * 将该模块挂载到NGX_HTTP_ACCESS_PHASE访问权限检查阶段
+ * 并绑定处理函数
  */
 static ngx_int_t
 ngx_http_access_init(ngx_conf_t *cf)
