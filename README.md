@@ -9,3 +9,5 @@
 4 [初识RabbitMQ](https://github.com/luofengmacheng/useful_topics/blob/master/rabbitmq_introduce.md)
 
 5 [redis(3.2.5)代码总体处理流程](https://github.com/luofengmacheng/useful_topics/blob/master/redis_illustrate.md)
+
+6 [python和php请求和处理HTTP请求](https://github.com/luofengmacheng/useful_topics/blob/master/python_php_handle_http.md)
