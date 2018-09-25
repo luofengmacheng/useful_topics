@@ -2,7 +2,9 @@
 
 ### 1 环境搭建
 
-* nginx(./configure && make && make install)，十分顺畅
+* nginx(./configure && make && make install)
+
+由于nginx要使用正则表达式，因此，需要安装PCRE。
 
 * php-fpm(PHP version:5.3.29)
 
@@ -25,7 +27,8 @@
 --enable-sockets \
 --enable-soap \
 --with-curl \
---with-mcrypt
+--with-mcrypt \
+--enable-mbstring
 ```
 
 问题1：没有找到libiconv库
@@ -137,14 +140,9 @@ mv /usr/bin/python /usr/bin/python2.6.6
 ln -s /usr/local/bin/python2.7 /usr/bin/python
 ```
 
-然后安装setuptools：
+然后安装setuptools。
 
-```
-wget –q http://peak.telecommunity.com/dist/ez_setup.py
-python ez_setup.py
-```
-
-下载MySQLdb的包并安装，安装该包时，可能会找不到mysql_config，需要将mysql_config所在的目录添加到PATH路径中，另外还要安装python的开发包：python-devel.x86_64，否则会出现下列错误：
+下载MySQLdb的包并安装，安装该包时，可能会找不到mysql.h，此时需要安装mysql的开发库(mysql-devel.x86_64)，可能会找不到mysql_config，需要将mysql_config所在的目录添加到PATH路径中，另外还要安装python的开发包：python-devel.x86_64，否则会出现下列错误：
 
 ```
 pymemcompat.h:10:20: error: Python.h No such file or directory
